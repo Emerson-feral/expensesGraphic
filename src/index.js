@@ -1,5 +1,6 @@
 const fs = require("fs");
 const csvParser = require("csv-parser");
+require("dotenv").config();
 
 const filePath = process.env.PATHCSV;
 
@@ -24,6 +25,7 @@ const processCSV = () => {
     .pipe(csvParser())
     .on("data", (row) => {
       const category = costCategories(row);
+      console.log(category);
       const value = parseFloat(row.amount) || 0;
 
       if (!costs[category]) {
@@ -32,7 +34,7 @@ const processCSV = () => {
       costs[category] += value;
     })
     .on("end", () => {
-      fs.writeFileSync("costs.json", JSON.stringify(costs, null, 2));
+      fs.writeFileSync("src/costs.json", JSON.stringify(costs, null, 2));
       console.log("File costs.json generated");
     });
 };
