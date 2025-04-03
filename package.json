@@ -1,0 +1,25 @@
+{
+  "name": "expensesgraphic",
+  "version": "1.0.0",
+  "description": "Expenses graphic",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Emerson-feral/expensesGraphic.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Emerson-feral/expensesGraphic/issues"
+  },
+  "homepage": "https://github.com/Emerson-feral/expensesGraphic#readme",
+  "dependencies": {
+    "csv-parser": "^3.2.0",
+    "dotenv": "^16.4.7",
+    "plotly": "^1.0.6"
+  }
+}
