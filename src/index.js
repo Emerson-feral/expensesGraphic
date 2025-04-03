@@ -25,7 +25,6 @@ const processCSV = () => {
     .pipe(csvParser())
     .on("data", (row) => {
       const category = costCategories(row);
-      console.log(category);
       const value = parseFloat(row.amount) || 0;
 
       if (!costs[category]) {
