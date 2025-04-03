@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <title>Expenses Chart</title>
+  </head>
+  <body>
+    <h1>Expenses by category</h1>
+    <div id="myDiv"></div>
+
+    <script>
+      fetch("costs.json")
+        .then((response) => response.json())
+        .then((data) => {
+          let values = Object.values(data);
+          let labels = Object.keys(data);
+
+          let trace = {
+            values: values,
+            labels: labels,
+            type: "pie",
+          };
+
+          let layout = { height: 400, width: 500 };
+
+          Plotly.newPlot("myDiv", [trace], layout);
+        })
+        .catch((error) => console.error("Error:", error));
+    </script>
+  </body>
+</html>
